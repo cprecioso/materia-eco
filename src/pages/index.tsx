@@ -14,6 +14,11 @@ const IndexPage: NextPage = () => {
       <div className={styles.wrapper}>
         <Head>
           <title>MATERIA</title>
+          <link
+            rel="preload"
+            href="https://use.typekit.net/dui6xjj.css"
+            as="style"
+          />
         </Head>
 
         <header>
