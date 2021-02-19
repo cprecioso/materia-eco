@@ -19,6 +19,10 @@ const IndexPage: NextPage = () => {
             href="https://use.typekit.net/dui6xjj.css"
             as="style"
           />
+          <meta
+            name="description"
+            content="Construyendo una nueva forma de elegir materiales sostenibles"
+          />
         </Head>
 
         <header>
@@ -38,6 +42,7 @@ const IndexPage: NextPage = () => {
           >
             <input type="hidden" name="usp" value="pp_url" />
             <input
+              aria-label="Email"
               type="email"
               autoFocus
               autoComplete="email"
@@ -48,7 +53,11 @@ const IndexPage: NextPage = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <button type="submit" className={styles.sendButton}>
+            <button
+              type="submit"
+              className={styles.sendButton}
+              aria-label="Enviar"
+            >
               <FontAwesomeIcon icon={faPaperPlane} />
             </button>
           </form>
