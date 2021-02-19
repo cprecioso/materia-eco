@@ -1,7 +1,12 @@
 import type { NextPage } from "next"
+import Head from "next/head"
 
 const IndexPage: NextPage = () => (
   <div className="wrapper">
+    <Head>
+      <title>materia.eco</title>
+    </Head>
+
     <style jsx>{`
       :global(body) {
         background-color: rgb(250, 250, 250);
