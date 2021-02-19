@@ -1,43 +1,85 @@
+import styles from "@/style/index.module.css"
+import { faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons"
+import { faEnvelope, faPaperPlane } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import type { NextPage } from "next"
 import Head from "next/head"
+import { useState } from "react"
 
-const IndexPage: NextPage = () => (
-  <div className="wrapper">
-    <Head>
-      <title>materia.eco</title>
-    </Head>
+const IndexPage: NextPage = () => {
+  const [email, setEmail] = useState("")
 
-    <style jsx>{`
-      :global(body) {
-        background-color: rgb(250, 250, 250);
-      }
+  return (
+    <div className={styles.outerWrapper}>
+      <div className={styles.wrapper}>
+        <Head>
+          <title>MATERIA</title>
+        </Head>
 
-      .wrapper {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-          sans-serif;
+        <header>
+          <h1 className={styles.title}>MATERIA</h1>
+          <h2 className={styles.subtitle}>
+            Construyendo una nueva forma de elegir materiales sostenibles
+          </h2>
+        </header>
 
-        text-align: left;
-        color: rgb(90, 90, 90);
-        font-weight: bold;
-        margin: 20vh 20vw 0;
-      }
+        <main>
+          <p>Síguenos para estar al día</p>
 
-      a {
-        color: inherit;
-      }
-    `}</style>
-    <h1>
-      Estamos
-      <br />
-      construyendo
-      <br />
-      materia.eco
-    </h1>
-    <p>
-      <a href="mailto:hola@materia.eco">hola@materia.eco</a>
-    </p>
-  </div>
-)
+          <form
+            className={styles.linkedForm}
+            method="GET"
+            action="https://docs.google.com/forms/d/e/1FAIpQLSeR73UTiDLt0fbzpJ5Ou-xErBkDAXYEWQ9oEhvm96F1RPCNDQ/viewform"
+          >
+            <input type="hidden" name="usp" value="pp_url" />
+            <input
+              type="email"
+              autoFocus
+              autoComplete="email"
+              name="entry.535197192"
+              placeholder="Email"
+              required
+              className={styles.emailInput}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <button type="submit" className={styles.sendButton}>
+              <FontAwesomeIcon icon={faPaperPlane} />
+            </button>
+          </form>
+
+          <ul className={styles.socialList}>
+            <li>
+              <a
+                href="mailto:hola@materia.eco"
+                title="Dirección de correo electrónico"
+              >
+                <FontAwesomeIcon icon={faEnvelope} />
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/materia_eco" title="Twitter">
+                <FontAwesomeIcon icon={faTwitter} />
+              </a>
+            </li>
+            <li>
+              <a href="https://instagram.com/materia_eco" title="Instagram">
+                <FontAwesomeIcon icon={faInstagram} />
+              </a>
+            </li>
+          </ul>
+        </main>
+
+        <footer>
+          <p>
+            Escríbenos para más información
+            <br />
+            <a href="mailto:hola@materia.eco">hola@materia.eco</a>
+          </p>
+        </footer>
+      </div>
+    </div>
+  )
+}
 
 export default IndexPage
