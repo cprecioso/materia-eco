@@ -124,5 +124,18 @@
 
 .socialList li:hover {
   transform: scale(1.2);
-  box-shadow: 0 3px 5px -0.5px #4b4b4b;
+}
+
+.emblems {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  padding-right: 1em;
+  padding-bottom: 1em;
+}
+
+.emblems img {
+  width: 2em;
+  height: 2em;
 }

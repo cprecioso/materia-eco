@@ -85,6 +85,14 @@ const IndexPage: NextPage = () => {
         </footer>
       </div>
     </div>
+      <div className={styles.emblems}>
+        <a href="https://profiles.eco/materia?ref=tm" rel="noopener">
+          <img
+            alt=".eco profile for materia.eco"
+            src="https://trust.profiles.eco/materia/eco-mark.svg?color=%234b4b4b"
+          />
+        </a>
+      </div>
       <div className={styles.background}>
         <video
           src="/static/splash.mp4"
