@@ -7,7 +7,7 @@
   background-repeat: no-repeat;
 }
 
-.wrapper {
+.contentWrapper {
   min-height: 100vh;
   width: 80%;
   max-width: 750px;
@@ -26,7 +26,7 @@
   color: #3c3c3c;
 }
 
-.wrapper a {
+.contentWrapper a {
   color: inherit;
 }
 

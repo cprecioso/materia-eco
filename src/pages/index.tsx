@@ -11,7 +11,7 @@ const IndexPage: NextPage = () => {
 
   return (
     <div className={styles.outerWrapper}>
-      <div className={styles.wrapper}>
+      <div className={styles.contentWrapper}>
         <Head>
           <title>MATERIA</title>
           <link
@@ -32,6 +32,7 @@ const IndexPage: NextPage = () => {
           </h2>
         </header>
 
+        <div className={styles.content}>
         <main>
           <p>Síguenos para estar al día</p>
 
@@ -91,6 +92,7 @@ const IndexPage: NextPage = () => {
           </p>
         </footer>
       </div>
+    </div>
     </div>
   )
 }
