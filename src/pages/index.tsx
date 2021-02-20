@@ -44,7 +44,6 @@ const IndexPage: NextPage = () => {
             <input
               aria-label="Email"
               type="email"
-              autoFocus
               autoComplete="email"
               name="entry.535197192"
               placeholder="Email"
