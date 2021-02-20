@@ -35,7 +35,7 @@
 
   font-family: "Roboto", sans-serif;
   font-weight: 300;
-  font-size: 1rem;
+  font-size: 1em;
   text-align: center;
   color: #3c3c3c;
 }
@@ -138,4 +138,14 @@
 .emblems img {
   width: 2em;
   height: 2em;
+}
+
+@media (max-width: 700px) {
+  .outerWrapper {
+    font-size: 0.7rem;
+  }
+
+  .content {
+    font-size: 1rem;
+  }
 }
