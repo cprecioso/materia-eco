@@ -85,6 +85,18 @@ const IndexPage: NextPage = () => {
         </footer>
       </div>
     </div>
+      <div className={styles.background}>
+        <video
+          src="/static/splash.mp4"
+          autoPlay
+          loop
+          disablePictureInPicture
+          disableRemotePlayback
+          muted
+          playsInline
+          controls={false}
+        />
+      </div>
     </div>
   )
 }
