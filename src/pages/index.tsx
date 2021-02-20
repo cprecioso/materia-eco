@@ -23,6 +23,7 @@ const IndexPage: NextPage = () => {
             name="description"
             content="Construyendo una nueva forma de elegir materiales sostenibles"
           />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
 
         <header>
@@ -33,58 +34,58 @@ const IndexPage: NextPage = () => {
         </header>
 
         <div className={styles.content}>
-        <main>
-          <p>Síguenos para estar al día</p>
+          <main>
+            <p>Síguenos para estar al día</p>
 
-          <form
-            className={styles.linkedForm}
-            method="GET"
-            action="https://docs.google.com/forms/d/e/1FAIpQLSeR73UTiDLt0fbzpJ5Ou-xErBkDAXYEWQ9oEhvm96F1RPCNDQ/viewform"
-          >
-            <input type="hidden" name="usp" value="pp_url" />
-            <input
-              aria-label="Email"
-              type="email"
-              autoComplete="email"
-              name="entry.535197192"
-              placeholder="Email"
-              required
-              className={styles.emailInput}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <button
-              type="submit"
-              className={styles.sendButton}
-              aria-label="Enviar"
+            <form
+              className={styles.linkedForm}
+              method="GET"
+              action="https://docs.google.com/forms/d/e/1FAIpQLSeR73UTiDLt0fbzpJ5Ou-xErBkDAXYEWQ9oEhvm96F1RPCNDQ/viewform"
             >
-              <FontAwesomeIcon icon={faPaperPlane} />
-            </button>
-          </form>
+              <input type="hidden" name="usp" value="pp_url" />
+              <input
+                aria-label="Email"
+                type="email"
+                autoComplete="email"
+                name="entry.535197192"
+                placeholder="Email"
+                required
+                className={styles.emailInput}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <button
+                type="submit"
+                className={styles.sendButton}
+                aria-label="Enviar"
+              >
+                <FontAwesomeIcon icon={faPaperPlane} />
+              </button>
+            </form>
 
-          <ul className={styles.socialList}>
-            <li>
-              <a href="https://twitter.com/materia_eco" title="Twitter">
-                <FontAwesomeIcon icon={faTwitter} />
-              </a>
-            </li>
-            <li>
-              <a href="https://instagram.com/materia_eco" title="Instagram">
-                <FontAwesomeIcon icon={faInstagram} />
-              </a>
-            </li>
-          </ul>
-        </main>
+            <ul className={styles.socialList}>
+              <li>
+                <a href="https://twitter.com/materia_eco" title="Twitter">
+                  <FontAwesomeIcon icon={faTwitter} />
+                </a>
+              </li>
+              <li>
+                <a href="https://instagram.com/materia_eco" title="Instagram">
+                  <FontAwesomeIcon icon={faInstagram} />
+                </a>
+              </li>
+            </ul>
+          </main>
 
-        <footer>
-          <p>
-            Escríbenos para más información
-            <br />
-            <a href="mailto:hola@materia.eco">hola@materia.eco</a>
-          </p>
-        </footer>
+          <footer>
+            <p>
+              Escríbenos para más información
+              <br />
+              <a href="mailto:hola@materia.eco">hola@materia.eco</a>
+            </p>
+          </footer>
+        </div>
       </div>
-    </div>
       <div className={styles.emblems}>
         <a href="https://profiles.eco/materia?ref=tm" rel="noopener">
           <img
