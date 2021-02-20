@@ -1,6 +1,6 @@
 import styles from "@/style/index.module.css"
 import { faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons"
-import { faEnvelope, faPaperPlane } from "@fortawesome/free-solid-svg-icons"
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import type { NextPage } from "next"
 import Head from "next/head"
@@ -63,14 +63,6 @@ const IndexPage: NextPage = () => {
           </form>
 
           <ul className={styles.socialList}>
-            <li>
-              <a
-                href="mailto:hola@materia.eco"
-                title="Dirección de correo electrónico"
-              >
-                <FontAwesomeIcon icon={faEnvelope} />
-              </a>
-            </li>
             <li>
               <a href="https://twitter.com/materia_eco" title="Twitter">
                 <FontAwesomeIcon icon={faTwitter} />
