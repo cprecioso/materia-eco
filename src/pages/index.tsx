@@ -34,7 +34,7 @@ const IndexPage: NextPage = () => {
 
         <div className={styles.content}>
           <main>
-            <p>Síguenos para estar al día</p>
+            <p>Apúntate para recibir novedades</p>
 
             <form
               className={styles.linkedForm}
