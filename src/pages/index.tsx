@@ -94,18 +94,18 @@ const IndexPage: NextPage = () => {
           />
         </a>
       </div>
-      <div className={styles.background}>
-        <video
-          src="/static/splash.mp4"
-          autoPlay
-          loop
-          disablePictureInPicture
-          disableRemotePlayback
-          muted
-          playsInline
-          controls={false}
-        />
-      </div>
+
+      <video
+        className={styles.background}
+        src="/static/splash.mp4"
+        autoPlay
+        loop
+        disablePictureInPicture
+        disableRemotePlayback
+        muted
+        playsInline
+        controls={false}
+      />
     </div>
   )
 }
