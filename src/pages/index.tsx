@@ -1,5 +1,4 @@
 import styles from "@/style/index.module.css"
-import { faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons"
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import type { NextPage } from "next"
@@ -62,19 +61,6 @@ const IndexPage: NextPage = () => {
                 <FontAwesomeIcon icon={faPaperPlane} />
               </button>
             </form>
-
-            <ul className={styles.socialList}>
-              <li>
-                <a href="https://twitter.com/materia_eco" title="Twitter">
-                  <FontAwesomeIcon icon={faTwitter} />
-                </a>
-              </li>
-              <li>
-                <a href="https://instagram.com/materia_eco" title="Instagram">
-                  <FontAwesomeIcon icon={faInstagram} />
-                </a>
-              </li>
-            </ul>
           </main>
 
           <footer>
