@@ -1,0 +1,87 @@
+.out {
+  position: absolute;
+  left: -5000px;
+}
+
+.form {
+  background-color: white;
+  border-radius: 3px;
+  padding: 1em;
+  overflow: hidden;
+}
+
+.formContent {
+  margin-bottom: 1em;
+}
+
+.mainInput {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.preHidden {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.preHidden > * {
+  margin-top: 1em;
+}
+
+.button,
+.input {
+  border: 0;
+  background-color: transparent;
+  font-size: inherit;
+}
+
+.button:focus,
+.input:focus {
+  outline: none;
+}
+
+.input {
+  flex: 1 0;
+}
+
+.button {
+  flex: 0 0;
+  outline: none;
+
+  transition: filter 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.button:focus {
+  outline: 1px solid rgb(0, 153, 255);
+}
+
+:invalid .button {
+  filter: opacity(0.3);
+}
+
+:valid .button {
+  color: rgb(0, 153, 255);
+}
+
+.list {
+  text-align: left;
+  padding-left: 0;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.list li {
+  display: block;
+}
+
+.preHidden {
+  margin-top: -50em;
+  filter: opacity(0);
+  transition: margin-top 500ms ease-in-out 300ms, filter 300ms ease-in-out;
+}
+
+:valid .preHidden {
+  margin-top: 0;
+  filter: opacity(1);
+  transition: margin-top 500ms ease-in-out, filter 300ms ease-in-out 500ms;
+}

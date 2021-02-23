@@ -1,13 +1,9 @@
+import { EmailInput } from "@/components/EmailInput"
 import styles from "@/style/index.module.css"
-import { faPaperPlane } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import type { NextPage } from "next"
 import Head from "next/head"
-import { useState } from "react"
 
 const IndexPage: NextPage = () => {
-  const [email, setEmail] = useState("")
-
   return (
     <div className={styles.outerWrapper}>
       <div className={styles.contentWrapper}>
@@ -36,31 +32,7 @@ const IndexPage: NextPage = () => {
           <main>
             <p>Apúntate para recibir novedades</p>
 
-            <form
-              className={styles.linkedForm}
-              method="GET"
-              action="https://docs.google.com/forms/d/e/1FAIpQLSeR73UTiDLt0fbzpJ5Ou-xErBkDAXYEWQ9oEhvm96F1RPCNDQ/viewform"
-            >
-              <input type="hidden" name="usp" value="pp_url" />
-              <input
-                aria-label="Email"
-                type="email"
-                autoComplete="email"
-                name="entry.535197192"
-                placeholder="Email"
-                required
-                className={styles.emailInput}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <button
-                type="submit"
-                className={styles.sendButton}
-                aria-label="Enviar"
-              >
-                <FontAwesomeIcon icon={faPaperPlane} />
-              </button>
-            </form>
+            <EmailInput />
           </main>
 
           <footer>

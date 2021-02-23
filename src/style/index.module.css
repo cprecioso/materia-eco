@@ -55,43 +55,6 @@
   color: #4b4b4b;
 }
 
-.linkedForm {
-  background-color: white;
-  border-radius: 3px;
-  padding: 1em;
-
-  display: flex;
-  flex-flow: row nowrap;
-}
-
-.sendButton,
-.emailInput {
-  border: 0;
-  background-color: transparent;
-  font-size: inherit;
-}
-
-.sendButton:focus,
-.emailInput:focus {
-  outline: none;
-}
-
-.emailInput {
-  flex: 1 0;
-}
-
-.sendButton {
-  flex: 0 0;
-  outline: none;
-
-  transition: filter 300ms ease-in-out;
-}
-
-.linkedForm:invalid .sendButton {
-  filter: opacity(0.3);
-  will-change: filter;
-}
-
 .socialList {
   display: flex;
   flex-flow: row nowrap;
