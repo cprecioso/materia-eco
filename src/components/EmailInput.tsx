@@ -49,6 +49,7 @@ export const EmailInput: FunctionComponent = () => {
             name="NAME"
             placeholder="Nombre (opcional)"
             autoComplete="name"
+            aria-label="Nombre (opcional)"
             tabIndex={2}
           />
           <input
@@ -57,6 +58,7 @@ export const EmailInput: FunctionComponent = () => {
             name="COMPANY"
             placeholder="Empresa (opcional)"
             autoComplete="organization"
+            aria-label="Empresa (opcional)"
             tabIndex={3}
           />
           <ul className={styles.list}>
