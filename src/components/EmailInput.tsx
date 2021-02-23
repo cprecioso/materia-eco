@@ -43,70 +43,72 @@ export const EmailInput: FunctionComponent = () => {
         </div>
 
         <div className={styles.preHidden}>
-          <input
-            className={styles.input}
-            type="text"
-            name="NAME"
-            placeholder="Nombre (opcional)"
-            autoComplete="name"
-            aria-label="Nombre (opcional)"
-            tabIndex={2}
-          />
-          <input
-            className={styles.input}
-            type="text"
-            name="COMPANY"
-            placeholder="Empresa (opcional)"
-            autoComplete="organization"
-            aria-label="Empresa (opcional)"
-            tabIndex={3}
-          />
-          <ul className={styles.list}>
-            <li>
-              <label>
-                <input
-                  type="checkbox"
-                  value={1}
-                  name="group[376474][1]"
-                  tabIndex={4}
-                />
-                Arquitectura
-              </label>
-            </li>
-            <li>
-              <label>
-                <input
-                  type="checkbox"
-                  value={2}
-                  name="group[376474][2]"
-                  tabIndex={5}
-                />
-                Interiorismo
-              </label>
-            </li>
-            <li>
-              <label>
-                <input
-                  type="checkbox"
-                  value={4}
-                  name="group[376474][4]"
-                  tabIndex={6}
-                />
-                Materiales
-              </label>
-            </li>
-            <li>
-              <label>
-                <input
-                  type="checkbox"
-                  value={8}
-                  name="group[376474][8]"
-                  tabIndex={7}
-                />
-                Ingeniería
-              </label>
-            </li>
-          </ul>
+          <div className={styles.preHiddenContent}>
+            <input
+              className={styles.input}
+              type="text"
+              name="NAME"
+              placeholder="Nombre (opcional)"
+              autoComplete="name"
+              aria-label="Nombre (opcional)"
+              tabIndex={2}
+            />
+            <input
+              className={styles.input}
+              type="text"
+              name="COMPANY"
+              placeholder="Empresa (opcional)"
+              autoComplete="organization"
+              aria-label="Empresa (opcional)"
+              tabIndex={3}
+            />
+            <ul className={styles.list}>
+              <li>
+                <label>
+                  <input
+                    type="checkbox"
+                    value={1}
+                    name="group[376474][1]"
+                    tabIndex={4}
+                  />
+                  Arquitectura
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input
+                    type="checkbox"
+                    value={2}
+                    name="group[376474][2]"
+                    tabIndex={5}
+                  />
+                  Interiorismo
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input
+                    type="checkbox"
+                    value={4}
+                    name="group[376474][4]"
+                    tabIndex={6}
+                  />
+                  Materiales
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input
+                    type="checkbox"
+                    value={8}
+                    name="group[376474][8]"
+                    tabIndex={7}
+                  />
+                  Ingeniería
+                </label>
+              </li>
+            </ul>
+          </div>
         </div>
       </form>
     </div>

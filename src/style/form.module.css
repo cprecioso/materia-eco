@@ -7,11 +7,6 @@
   background-color: white;
   border-radius: 3px;
   padding: 1em;
-  overflow: hidden;
-}
-
-.formContent {
-  margin-bottom: 1em;
 }
 
 .mainInput {
@@ -20,11 +15,16 @@
 }
 
 .preHidden {
-  display: flex;
-  flex-flow: column nowrap;
+  overflow: hidden;
 }
 
-.preHidden > * {
+.preHiddenContent {
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+}
+
+.preHiddenContent > * {
   margin-top: 1em;
 }
 
@@ -74,13 +74,13 @@
   display: block;
 }
 
-.preHidden {
+.preHiddenContent {
   margin-top: -50em;
   filter: opacity(0);
   transition: margin-top 500ms ease-in-out 300ms, filter 300ms ease-in-out;
 }
 
-:valid .preHidden {
+:valid .preHiddenContent {
   margin-top: 0;
   filter: opacity(1);
   transition: margin-top 500ms ease-in-out, filter 300ms ease-in-out 500ms;
