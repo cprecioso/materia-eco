@@ -1,7 +1,7 @@
 import styles from "@/style/form.module.css"
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { FunctionComponent } from "react"
+import { Icon } from "./Icon"
 
 export const EmailInput: FunctionComponent = () => {
   return (
@@ -38,7 +38,7 @@ export const EmailInput: FunctionComponent = () => {
             aria-label="Enviar"
             tabIndex={8}
           >
-            <FontAwesomeIcon icon={faPaperPlane} />
+            <Icon icon={faPaperPlane} />
           </button>
         </div>
 
