@@ -18,6 +18,16 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => (
       <link rel="icon" href="/favicon.ico" />
       <link rel="shortcut icon" href="/favicon.ico" />
       <meta name="theme-color" content="#292828" />
+
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-5SD0BKJM9Q"
+      />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-5SD0BKJM9Q");`,
+        }}
+      />
     </Head>
 
     <Component {...pageProps} />
