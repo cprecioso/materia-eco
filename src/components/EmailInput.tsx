@@ -104,7 +104,7 @@ export const EmailInput: FunctionComponent = () => {
                     name="group[376474][8]"
                     tabIndex={7}
                   />
-                  Ingeniería
+                  Construcción
                 </label>
               </li>
             </ul>
