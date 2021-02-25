@@ -21,11 +21,11 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => (
 
       <script
         async
-        src="https://www.googletagmanager.com/gtag/js?id=G-5SD0BKJM9Q"
+        src="https://www.googletagmanager.com/gtag/js?id=G-T9Y5DQLYNV"
       />
       <script
         dangerouslySetInnerHTML={{
-          __html: `function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-5SD0BKJM9Q");`,
+          __html: `function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-T9Y5DQLYNV");`,
         }}
       />
     </Head>
