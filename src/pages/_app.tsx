@@ -25,7 +25,7 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => (
       />
       <script
         dangerouslySetInnerHTML={{
-          __html: `function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-T9Y5DQLYNV");`,
+          __html: `function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-T9Y5DQLYNV",{storage:"none"});`,
         }}
       />
     </Head>
