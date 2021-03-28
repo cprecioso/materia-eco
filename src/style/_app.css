@@ -1,3 +1,9 @@
+@import url("https://use.typekit.net/dui6xjj.css");
+
 body {
   margin: 0;
+
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
 }
