@@ -85,3 +85,9 @@
   filter: opacity(1);
   transition: margin-top 500ms ease-in-out, filter 300ms ease-in-out 500ms;
 }
+
+.cta {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1em;
+}
