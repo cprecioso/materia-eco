@@ -1,4 +1,4 @@
-import { Footer } from "@/components/Footer"
+import { EmailInput } from "@/components/EmailInput"
 import { MenuData, MenuDocument, MenuProvider } from "@/components/Menu"
 import { NavBar } from "@/components/NavBar"
 import { TwoHalvesPage } from "@/components/TwoHalvesPage"
@@ -86,6 +86,12 @@ type Props = { response: GetMarketingPageQuery; menuData: MenuData }
 
 const MarketingPage: NextPage<Props> = ({ response, menuData }) => (
   <MenuProvider value={menuData}>
+    <style jsx>{`
+      footer {
+        margin-bottom: 1rem;
+      }
+    `}</style>
+
     <Head>
       {response.marketingPage?._seoMetaTags
         ? renderMetaTags(
@@ -97,10 +103,13 @@ const MarketingPage: NextPage<Props> = ({ response, menuData }) => (
     <TwoHalvesPage
       name={response.marketingPage?.name!}
       image={response.marketingPage?.coverImage!}
+      footer={
+        <footer>
+          <EmailInput data={response.mailingListForm!} />
+        </footer>
+      }
     >
       <StructuredText data={response.marketingPage?.content?.value} />
-
-      <Footer data={response.mailingListForm!} />
     </TwoHalvesPage>
   </MenuProvider>
 )
