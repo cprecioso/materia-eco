@@ -1,0 +1,30 @@
+schema:
+  - "${NEXT_PUBLIC_GQL_DRAFT_ENDPOINT}":
+      headers:
+        Authorization: "Bearer ${NEXT_PUBLIC_GQL_TOKEN}"
+
+documents: "src/**/*.{graphql,js,ts,jsx,tsx}"
+
+generates:
+  src/__generated/graphql.ts:
+    plugins:
+      - add:
+          content: "// @ts-nocheck"
+      - "typescript"
+      - "typescript-operations"
+      - "typed-document-node"
+    config:
+      onlyOperationTypes: true
+      preResolveTypes: true
+      ignoreEnumValuesFromSchema: true
+      skipTypename: true
+      useTypeImports: true
+      namingConvention: "keep"
+      flattenGeneratedTypes: false
+      documentMode: "documentNode"
+      pureMagicComment: true
+      documentNodeImport: "@/util/gql#DocumentNode"
+      enumsAsTypes: true
+      exportFragmentSpreadSubTypes: true
+
+overwrite: true
