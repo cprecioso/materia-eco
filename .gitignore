@@ -1,4 +1,3 @@
-.vscode
 node_modules
 .yarn/*
 !.yarn/releases
@@ -6,3 +5,8 @@ node_modules
 !.yarn/sdks
 !.yarn/versions
 .next
+
+.env*
+!.env.sample
+
+/src/__generated

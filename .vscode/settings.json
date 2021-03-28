@@ -1,0 +1,4 @@
+{
+  "graphql-config.dotEnvPath": ".env",
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
