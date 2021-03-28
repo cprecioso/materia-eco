@@ -16,7 +16,8 @@ gql`
 export const TwoHalvesPage: FunctionComponent<{
   name: string
   image: HalfImageFragment
-}> = ({ name, image, children }) => (
+  footer?: JSX.Element
+}> = ({ name, image, children, footer }) => (
   <div className="twohalves">
     <style jsx>{`
       .content-half,
@@ -41,6 +42,10 @@ export const TwoHalvesPage: FunctionComponent<{
         box-sizing: border-box;
         max-width: 500px;
         width: 100%;
+      }
+
+      .spacer {
+        flex: auto 1 0;
       }
 
       .image-half {
@@ -73,6 +78,9 @@ export const TwoHalvesPage: FunctionComponent<{
         <h1>{name}</h1>
         <>{children}</>
       </div>
+
+      <div className="spacer" />
+      {footer}
     </main>
 
     <div className="image-half" />

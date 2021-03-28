@@ -1,4 +1,4 @@
-import { Footer } from "@/components/Footer"
+import { EmailInput } from "@/components/EmailInput"
 import { Menu, MenuProvider } from "@/components/Menu"
 import styles from "@/style/index.module.css"
 import { gql, request } from "@/util/gql"
@@ -83,10 +83,14 @@ const IndexPage: NextPage<Props> = ({ data, menuData }) => {
 
           <div className={styles.content}>
             <Menu />
-
-            <Footer data={data.mailingListForm!} />
           </div>
+
+          <EmailInput
+            className={styles.emailInput}
+            data={data.mailingListForm!}
+          />
         </div>
+
         <div className={styles.emblems}>
           <a href="https://profiles.eco/materia?ref=tm" rel="noopener">
             <img
