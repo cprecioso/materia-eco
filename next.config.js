@@ -5,4 +5,7 @@ module.exports = /** @type {import("next/dist/next-server/server/config-shared")
     locales: ["en", "es"],
     defaultLocale: "en",
   },
+  future: {
+    webpack5: true,
+  },
 })
