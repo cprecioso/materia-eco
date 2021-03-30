@@ -14,7 +14,7 @@ gql`
     tag
   }
   fragment AppWrapperData on Query {
-    _site {
+    _site(locale: $locale) {
       faviconMetaTags {
         ...AppWrapperSeo
       }
