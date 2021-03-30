@@ -20,7 +20,8 @@
     "next": "^10.0.7",
     "react": "^17.0.1",
     "react-datocms": "^1.5.6",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "styled-jsx": "^3.4.4"
   },
   "devDependencies": {
     "@cprecioso/tsconfig": "^1.0.0",
