@@ -1,5 +1,6 @@
 import { gql } from "@/util/gql"
 import type { HalfImageFragment } from "@/__generated/graphql"
+import Image from "next/image"
 import type { FunctionComponent } from "react"
 
 gql`
@@ -49,27 +50,18 @@ export const TwoHalvesPage: FunctionComponent<{
       }
 
       .image-half {
-        background-repeat: no-repeat, no-repeat;
-        background-size: cover, cover;
         position: fixed;
 
         left: 50vw;
         right: 100vw;
+
+        background-size: cover;
       }
 
       h1 {
         font-size: 6.25em;
         line-height: 1em;
         margin-bottom: 0;
-      }
-    `}</style>
-
-    <style jsx>{`
-      .image-half {
-        background-image: url("${image?.url}"), url("${image?.blurUpThumb}");
-        background-position: ${image.focalPoint?.x * 100}%
-            ${image.focalPoint?.y * 100}%,
-          ${image.focalPoint?.x * 100}% ${image.focalPoint?.y * 100}%;
       }
     `}</style>
 
@@ -83,6 +75,26 @@ export const TwoHalvesPage: FunctionComponent<{
       {footer}
     </main>
 
-    <div className="image-half" />
+    <div
+      className="image-half"
+      style={{
+        backgroundImage: `url("${image.blurUpThumb}")`,
+        backgroundPosition: `${image.focalPoint?.x * 100}% ${
+          image.focalPoint?.y * 100
+        }%`,
+      }}
+    >
+      <Image
+        src={image.url}
+        layout="fill"
+        objectFit="cover"
+        objectPosition={`${image.focalPoint?.x * 100}% ${
+          image.focalPoint?.y * 100
+        }%`}
+        priority
+        quality={100}
+        loading="eager"
+      />
+    </div>
   </div>
 )
