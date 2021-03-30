@@ -41,6 +41,26 @@ export const NavBar: FunctionComponent<{ frosted?: boolean }> = ({
         color: inherit;
         text-decoration: inherit;
       }
+
+      .menu {
+        display: contents;
+      }
+
+      @media screen and (max-width: 1000px) {
+        header {
+          background-color: rgba(255, 255, 255, 30%);
+          backdrop-filter: blur(8px);
+          justify-content: center;
+        }
+
+        h1 {
+          text-align: center;
+        }
+
+        .menu {
+          display: none;
+        }
+      }
     `}</style>
 
     <Link href="/">
@@ -48,6 +68,8 @@ export const NavBar: FunctionComponent<{ frosted?: boolean }> = ({
         <h1>MATERIA</h1>
       </a>
     </Link>
-    <Menu />
+    <div className="menu">
+      <Menu />
+    </div>
   </header>
 )
