@@ -4,7 +4,8 @@ export const StyledBox: FunctionComponent = ({ children }) => (
   <div className="styled-box">
     <style jsx>{`
       .styled-box {
-        background-color: white;
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(5px);
         border-radius: 3px;
         padding: 1em;
       }

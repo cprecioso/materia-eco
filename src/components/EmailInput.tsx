@@ -18,8 +18,9 @@ gql`
 export const EmailInput: FunctionComponent<{
   data: GetMailingListFormFragment
   className?: string
-}> = ({ data, className }) => (
-  <div className={className}>
+  dark?: boolean
+}> = ({ data, className, dark = false }) => (
+  <div className={className + " " + (dark ? styles.dark : "")}>
     <p className={styles.cta}>
       <b>{data.callToAction}</b>
     </p>

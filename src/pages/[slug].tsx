@@ -103,7 +103,7 @@ const MarketingPage: NextPage<Props> = ({ response, menuData }) => (
         image={response.marketingPage?.coverImage!}
         footer={
           <footer>
-            <EmailInput data={response.mailingListForm!} />
+            <EmailInput data={response.mailingListForm!} dark />
           </footer>
         }
       >

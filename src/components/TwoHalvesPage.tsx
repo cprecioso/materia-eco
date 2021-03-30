@@ -39,10 +39,16 @@ export const TwoHalvesPage: FunctionComponent<{
 
       .content {
         margin: 5em 0;
-        padding: 0 2rem;
+        margin-top: 8em;
+        padding: 2rem;
         box-sizing: border-box;
         max-width: 500px;
-        width: 100%;
+        width: 95vw;
+
+        background-color: white;
+        border-radius: 3px;
+
+        overflow: hidden;
       }
 
       .spacer {
@@ -61,7 +67,38 @@ export const TwoHalvesPage: FunctionComponent<{
       h1 {
         font-size: 6.25em;
         line-height: 1em;
-        margin-bottom: 0;
+        margin: 0;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .image-half {
+          z-index: -1;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          position: fixed;
+          width: 100vw;
+          height: 100vh;
+        }
+
+        .content-half {
+          width: 100vw;
+        }
+
+        h1 {
+          font-size: 2em;
+        }
+
+        .footer {
+          background-color: white;
+          width: 100vw;
+        }
+
+        .footer-inside {
+          max-width: 90%;
+          margin: 1rem auto;
+        }
       }
     `}</style>
 
@@ -72,7 +109,9 @@ export const TwoHalvesPage: FunctionComponent<{
       </div>
 
       <div className="spacer" />
-      {footer}
+      <div className="footer">
+        <div className="footer-inside">{footer}</div>
+      </div>
     </main>
 
     <div
