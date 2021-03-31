@@ -34,9 +34,12 @@ gql`
   }
 `
 
-export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
-  const data = await request(GetLandingPageDocument, {
-      locale: locale as SiteLocale,
+export const getStaticProps: GetStaticProps<Props> = async ({
+  locale,
+  preview,
+}) => {
+  const data = await request(preview, GetLandingPageDocument, {
+    locale: locale as SiteLocale,
   })
 
   return { props: { data }, revalidate: 86400 }

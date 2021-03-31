@@ -42,8 +42,9 @@ gql`
 export const getStaticProps: GetStaticProps<Props, Query> = async ({
   locale,
   params,
+  preview,
 }) => {
-  const response = await request(GetMarketingPageDocument, {
+  const response = await request(preview, GetMarketingPageDocument, {
     slug: params?.slug,
     locale: locale as SiteLocale,
   })
