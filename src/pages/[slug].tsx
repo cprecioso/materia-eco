@@ -5,8 +5,8 @@ import { NavBar } from "@/components/NavBar"
 import { TwoHalvesPage } from "@/components/TwoHalvesPage"
 import { gql, request } from "@/util/gql"
 import {
-  GetMarketingPageDocument,
-  GetMarketingPageQuery,
+  MarketingPageDocument,
+  MarketingPageQuery,
   SiteLocale,
 } from "@/__generated/graphql"
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next"
@@ -20,7 +20,7 @@ export const getStaticPaths: GetStaticPaths<Query> = async ({}) => ({
 })
 
 gql`
-  query GetMarketingPage($slug: String, $locale: SiteLocale) {
+  query MarketingPage($slug: String, $locale: SiteLocale) {
     ...AppWrapper
     ...Menu
     ...EmailInput
@@ -44,7 +44,7 @@ export const getStaticProps: GetStaticProps<Props, Query> = async ({
   params,
   preview,
 }) => {
-  const response = await request(preview, GetMarketingPageDocument, {
+  const response = await request(preview, MarketingPageDocument, {
     slug: params?.slug,
     locale: locale as SiteLocale,
   })
@@ -54,7 +54,7 @@ export const getStaticProps: GetStaticProps<Props, Query> = async ({
   return { props: { response }, revalidate: 86400 }
 }
 
-type Props = { response: GetMarketingPageQuery }
+type Props = { response: MarketingPageQuery }
 
 const MarketingPage: NextPage<Props> = ({ response }) => (
   <AppWrapper seo={response.marketingPage?._seoMetaTags} site={response}>

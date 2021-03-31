@@ -4,15 +4,15 @@ import { Menu, MenuProvider } from "@/components/Menu"
 import styles from "@/style/index.module.css"
 import { gql, request } from "@/util/gql"
 import {
-  GetLandingPageDocument,
-  GetLandingPageQuery,
+  IndexPageDocument,
+  IndexPageQuery,
   SiteLocale,
 } from "@/__generated/graphql"
 import type { GetStaticProps, NextPage } from "next"
 import { StructuredText } from "react-datocms"
 
 gql`
-  query GetLandingPage($locale: SiteLocale) {
+  query IndexPage($locale: SiteLocale) {
     ...AppWrapper
     ...EmailInput
     ...Menu
@@ -38,14 +38,14 @@ export const getStaticProps: GetStaticProps<Props> = async ({
   locale,
   preview,
 }) => {
-  const data = await request(preview, GetLandingPageDocument, {
+  const data = await request(preview, IndexPageDocument, {
     locale: locale as SiteLocale,
   })
 
   return { props: { data }, revalidate: 86400 }
 }
 
-type Props = { data: GetLandingPageQuery }
+type Props = { data: IndexPageQuery }
 
 const IndexPage: NextPage<Props> = ({ data }) => (
   <AppWrapper seo={data.landingPage?._seoMetaTags} site={data}>
