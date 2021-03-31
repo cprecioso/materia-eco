@@ -1,7 +1,7 @@
 schema:
   - "${NEXT_PUBLIC_GQL_DRAFT_ENDPOINT}":
       headers:
-        Authorization: "Bearer ${NEXT_PUBLIC_GQL_TOKEN}"
+        Authorization: "Bearer ${GQL_TOKEN}"
 
 documents: "src/**/*.{graphql,js,ts,jsx,tsx}"
 
@@ -21,7 +21,8 @@ generates:
       useTypeImports: true
       namingConvention: "keep"
       flattenGeneratedTypes: false
-      documentMode: "documentNode"
+      documentMode: "graphQLTag"
+      gqlImport: "@/util/gql#gql"
       pureMagicComment: true
       documentNodeImport: "@/util/gql#DocumentNode"
       enumsAsTypes: true

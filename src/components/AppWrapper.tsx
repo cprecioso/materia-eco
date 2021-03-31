@@ -17,7 +17,9 @@ gql`
   fragment AppWrapper on Query {
     appWrapperData: _site(locale: $locale) {
       faviconMetaTags(variants: [icon, appleTouchIcon, msApplication]) {
-        ...AppWrapperSeo
+        attributes
+        content
+        tag
       }
     }
   }
