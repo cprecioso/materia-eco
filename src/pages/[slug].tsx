@@ -1,13 +1,12 @@
 import { AppWrapper } from "@/components/AppWrapper"
 import { EmailInput } from "@/components/EmailInput"
-import { MenuData, MenuDocument, MenuProvider } from "@/components/Menu"
+import { MenuProvider } from "@/components/Menu"
 import { NavBar } from "@/components/NavBar"
 import { TwoHalvesPage } from "@/components/TwoHalvesPage"
 import { gql, request } from "@/util/gql"
 import {
   GetMarketingPageDocument,
   GetMarketingPageQuery,
-  ListMarketingPagesDocument,
   SiteLocale,
 } from "@/__generated/graphql"
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next"
@@ -47,7 +46,9 @@ export const getStaticPaths: GetStaticPaths<Query> = async ({ locales }) => {
 
 gql`
   query GetMarketingPage($slug: String, $locale: SiteLocale) {
-    ...AppWrapperData
+    ...AppWrapper
+    ...Menu
+    ...EmailInput
     marketingPage(filter: { slug: { eq: $slug } }, locale: $locale) {
       _seoMetaTags {
         ...AppWrapperSeo
@@ -59,14 +60,6 @@ gql`
       content {
         value
       }
-      _seoMetaTags {
-        attributes
-        content
-        tag
-      }
-    }
-    mailingListForm(locale: $locale) {
-      ...GetMailingListForm
     }
   }
 `
@@ -75,22 +68,19 @@ export const getStaticProps: GetStaticProps<Props, Query> = async ({
   locale,
   params,
 }) => {
-  const [response, menuData] = await Promise.all([
-    request(GetMarketingPageDocument, {
-      slug: params?.slug,
-      locale: locale as SiteLocale,
-    }),
-    request(MenuDocument, { locale: locale as SiteLocale }),
-  ])
+  const response = await request(GetMarketingPageDocument, {
+    slug: params?.slug,
+    locale: locale as SiteLocale,
+  })
 
-  return { props: { response, menuData } }
+  return { props: { response } }
 }
 
-type Props = { response: GetMarketingPageQuery; menuData: MenuData }
+type Props = { response: GetMarketingPageQuery }
 
-const MarketingPage: NextPage<Props> = ({ response, menuData }) => (
+const MarketingPage: NextPage<Props> = ({ response }) => (
   <AppWrapper seo={response.marketingPage?._seoMetaTags} site={response}>
-    <MenuProvider value={menuData}>
+    <MenuProvider value={response}>
       <style jsx>{`
         footer {
           margin-bottom: 1rem;
@@ -103,7 +93,7 @@ const MarketingPage: NextPage<Props> = ({ response, menuData }) => (
         image={response.marketingPage?.coverImage!}
         footer={
           <footer>
-            <EmailInput data={response.mailingListForm!} dark />
+            <EmailInput data={response} dark />
           </footer>
         }
       >

@@ -1,28 +1,30 @@
 import styles from "@/style/form.module.css"
 import { gql } from "@/util/gql"
-import { GetMailingListFormFragment } from "@/__generated/graphql"
+import { EmailInputFragment } from "@/__generated/graphql"
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons"
 import { FunctionComponent } from "react"
 import { Icon } from "./Icon"
 
 gql`
-  fragment GetMailingListForm on MailingListFormRecord {
-    namePlaceholder
-    emailPlaceholder
-    companyPlaceholder
-    callToAction
-    areaOptions
+  fragment EmailInput on Query {
+    emailInputData: mailingListForm(locale: $locale) {
+      namePlaceholder
+      emailPlaceholder
+      companyPlaceholder
+      callToAction
+      areaOptions
+    }
   }
 `
 
 export const EmailInput: FunctionComponent<{
-  data: GetMailingListFormFragment
+  data: EmailInputFragment
   className?: string
   dark?: boolean
-}> = ({ data, className, dark = false }) => (
+}> = ({ data: { emailInputData: data }, className, dark = false }) => (
   <div className={className + " " + (dark ? styles.dark : "")}>
     <p className={styles.cta}>
-      <b>{data.callToAction}</b>
+      <b>{data!.callToAction}</b>
     </p>
     <div className={styles.form}>
       <form
@@ -36,9 +38,9 @@ export const EmailInput: FunctionComponent<{
           <input
             type="email"
             name="EMAIL"
-            placeholder={data.emailPlaceholder!}
+            placeholder={data!.emailPlaceholder!}
             required
-            aria-label={data.emailPlaceholder!}
+            aria-label={data!.emailPlaceholder!}
             autoComplete="email"
             className={styles.input}
             tabIndex={1}
@@ -62,22 +64,22 @@ export const EmailInput: FunctionComponent<{
               className={styles.input}
               type="text"
               name="NAME"
-              placeholder={data.namePlaceholder!}
+              placeholder={data!.namePlaceholder!}
               autoComplete="name"
-              aria-label={data.namePlaceholder!}
+              aria-label={data!.namePlaceholder!}
               tabIndex={2}
             />
             <input
               className={styles.input}
               type="text"
               name="COMPANY"
-              placeholder={data.companyPlaceholder!}
+              placeholder={data!.companyPlaceholder!}
               autoComplete="organization"
-              aria-label={data.companyPlaceholder!}
+              aria-label={data!.companyPlaceholder!}
               tabIndex={3}
             />
             <ul className={styles.list}>
-              {data.areaOptions?.split("|").map((option, i) => (
+              {data!.areaOptions?.split("|").map((option, i) => (
                 <li key={i}>
                   <label>
                     <input

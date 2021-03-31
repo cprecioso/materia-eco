@@ -1,27 +1,27 @@
 import { gql } from "@/util/gql"
-import { ListMenuQuery } from "@/__generated/graphql"
+import { MenuFragment } from "@/__generated/graphql"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { createContext, FunctionComponent, useContext } from "react"
 import { Button } from "./Basic"
 
 gql`
-  query ListMenu($locale: SiteLocale) {
-    allMarketingPages(locale: $locale) {
+  fragment Menu on Query {
+    menuData: allMarketingPages(locale: $locale) {
       slug
       name
     }
   }
 `
 
-const MenuDataContext = createContext<ListMenuQuery>({ allMarketingPages: [] })
+const MenuDataContext = createContext<MenuFragment>({ menuData: [] })
 MenuDataContext.displayName = "MenuData"
 
 const Menu: FunctionComponent = () => {
   const router = useRouter()
 
   const data = useContext(MenuDataContext)
-  const links = data?.allMarketingPages.filter(
+  const links = data?.menuData.filter(
     ({ slug }) => `/${slug}` !== router.asPath
   )
 
@@ -60,8 +60,5 @@ const Menu: FunctionComponent = () => {
     </nav>
   )
 }
-
-export { ListMenuDocument as MenuDocument } from "@/__generated/graphql"
-export type { ListMenuQuery as MenuData } from "@/__generated/graphql"
 export { Menu }
 export const MenuProvider = MenuDataContext.Provider

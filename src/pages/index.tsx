@@ -6,8 +6,6 @@ import { gql, request } from "@/util/gql"
 import {
   GetLandingPageDocument,
   GetLandingPageQuery,
-  ListMenuDocument,
-  ListMenuQuery,
   SiteLocale,
 } from "@/__generated/graphql"
 import type { GetStaticProps, NextPage } from "next"
@@ -15,7 +13,9 @@ import { StructuredText } from "react-datocms"
 
 gql`
   query GetLandingPage($locale: SiteLocale) {
-    ...AppWrapperData
+    ...AppWrapper
+    ...EmailInput
+    ...Menu
     landingPage(locale: $locale) {
       _seoMetaTags {
         ...AppWrapperSeo
@@ -31,32 +31,23 @@ gql`
         blurUpThumb
       }
     }
-    mailingListForm(locale: $locale) {
-      ...GetMailingListForm
-    }
   }
 `
 
 export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
-  const [data, menuData] = await Promise.all([
-    request(GetLandingPageDocument, {
+  const data = await request(GetLandingPageDocument, {
       locale: locale as SiteLocale,
-    }),
-    request(ListMenuDocument, { locale: locale as SiteLocale }),
-  ])
+  })
 
-  return { props: { data, menuData } }
+  return { props: { data } }
 }
 
-type Props = {
-  data: GetLandingPageQuery
-  menuData: ListMenuQuery
-}
+type Props = { data: GetLandingPageQuery }
 
-const IndexPage: NextPage<Props> = ({ data, menuData }) => {
+const IndexPage: NextPage<Props> = ({ data }) => {
   return (
     <AppWrapper seo={data.landingPage?._seoMetaTags} site={data}>
-      <MenuProvider value={menuData}>
+      <MenuProvider value={data}>
         <div className={styles.outerWrapper}>
           <div className={styles.contentWrapper}>
             <header className={styles.landing}>
@@ -67,10 +58,7 @@ const IndexPage: NextPage<Props> = ({ data, menuData }) => {
               <Menu />
             </div>
 
-            <EmailInput
-              className={styles.emailInput}
-              data={data.mailingListForm!}
-            />
+            <EmailInput className={styles.emailInput} data={data} />
           </div>
 
           <div className={styles.emblems}>

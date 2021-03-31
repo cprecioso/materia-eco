@@ -1,6 +1,6 @@
 import { gql } from "@/util/gql"
 import {
-  AppWrapperDataFragment,
+  AppWrapperFragment,
   AppWrapperSeoFragment,
 } from "@/__generated/graphql"
 import Head from "next/head"
@@ -13,8 +13,9 @@ gql`
     content
     tag
   }
-  fragment AppWrapperData on Query {
-    _site(locale: $locale) {
+
+  fragment AppWrapper on Query {
+    appWrapperData: _site(locale: $locale) {
       faviconMetaTags(variants: [icon, appleTouchIcon, msApplication]) {
         ...AppWrapperSeo
       }
@@ -24,12 +25,12 @@ gql`
 
 export const AppWrapper: FunctionComponent<{
   seo?: AppWrapperSeoFragment[]
-  site?: AppWrapperDataFragment
+  site?: AppWrapperFragment
 }> = ({ children, seo, site }) => (
   <>
     <Head>
       {renderMetaTags([
-        ...(site?._site.faviconMetaTags ?? []),
+        ...(site?.appWrapperData.faviconMetaTags ?? []),
         ...(seo ?? []),
       ] as SeoMetaTagType[])}
     </Head>
