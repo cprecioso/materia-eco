@@ -39,7 +39,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
       locale: locale as SiteLocale,
   })
 
-  return { props: { data } }
+  return { props: { data }, revalidate: 86400 }
 }
 
 type Props = { data: GetLandingPageQuery }

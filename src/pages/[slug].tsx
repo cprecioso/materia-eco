@@ -14,35 +14,10 @@ import { StructuredText } from "react-datocms"
 
 type Query = { slug: string }
 
-gql`
-  query ListMarketingPages {
-    allMarketingPages {
-      slug
-      _allContentLocales {
-        locale
-      }
-    }
-  }
-`
-
-export const getStaticPaths: GetStaticPaths<Query> = async ({ locales }) => {
-  const response = await request(ListMarketingPagesDocument)
-
-  const paths = response.allMarketingPages.flatMap((page) => {
-    const slug = page.slug!
-
-    return (
-      page._allContentLocales
-        ?.filter((contentLocale) => locales?.includes(contentLocale?.locale!))
-        .map((locale) => ({
-          locale: locale?.locale,
-          params: { slug },
-        })) ?? [{ params: { slug } }]
-    )
-  })
-
-  return { paths, fallback: false }
-}
+export const getStaticPaths: GetStaticPaths<Query> = async ({}) => ({
+  paths: [],
+  fallback: "blocking",
+})
 
 gql`
   query GetMarketingPage($slug: String, $locale: SiteLocale) {
@@ -73,7 +48,9 @@ export const getStaticProps: GetStaticProps<Props, Query> = async ({
     locale: locale as SiteLocale,
   })
 
-  return { props: { response } }
+  if (!response.marketingPage) return { notFound: true, revalidate: 86400 }
+
+  return { props: { response }, revalidate: 86400 }
 }
 
 type Props = { response: GetMarketingPageQuery }
